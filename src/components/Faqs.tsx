@@ -23,7 +23,7 @@ const data = [
 ]
 export default function Faq() {
     return (
-        <section className="container mx-auto py-10 px-5">
+        <section className="container mx-auto py-10 sm:py-14 lg:py-18 px-5">
             <div className="text-center mb-12">
                 <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-gray-100">FAQ</span>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight capitalize">Frequently asked questions</h2>

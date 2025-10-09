@@ -2,17 +2,18 @@
 
 import { motion, useMotionValue, useTransform, useAnimationFrame } from 'framer-motion';
 import Image from 'next/image';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 
 const Partner = () => {
-  const images = [
+  // Wrap images array in useMemo to prevent it from changing on every render
+  const images = useMemo(() => [
     '/Header-Logo.png',
     '/hero-bg.png',
     '/hero1.png',
     '/Header-Logo.png',
     '/hero-bg.png',
     '/hero1.png',
-  ];
+  ], []);
 
   const baseX = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -41,7 +42,7 @@ const Partner = () => {
 
   return (
     <section className="relative overflow-hidden bg-white py-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">
+      <h2 className="text-3xl sm:text-3xl lg:text-5xl md:text-4xl font-bold text-center mb-6 text-[#2D1B4E]">
         Our Trusted Partners
       </h2>
 

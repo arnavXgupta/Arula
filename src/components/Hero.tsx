@@ -11,7 +11,7 @@ const HeroComponent: React.FC<HeroProps> = ({ className = '' }) => {
     <section className={`bg-[#FFF] py-10 px-6 md:px-12 lg:px-20 ${className}`}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2  items-center">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2D1B4E] leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-3xl md:text-5xl lg:text-6xl xs:text-center font-bold text-[#2D1B4E] leading-tight tracking-tight">
             ARULA for Autism
           </h1>
 

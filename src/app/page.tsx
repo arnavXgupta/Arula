@@ -2,10 +2,11 @@
 'use client';
 import Header from "@/components/Header";
 import Hero from "../components/Hero";
-import Features from "@/components/Features";
-import Contact from "@/components/Contact";
 import Partner from "@/components/Partner";
+import Stats from "@/components/Stats";
+import { Video } from "@/components/video";
 import Faq from "@/components/Faqs";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,7 +19,8 @@ export default function Home() {
         <Header />
         <Hero />
         <Partner />
-        <Features />
+        <Stats />
+        <Video />
         <Faq />
         <Contact />
         <Footer />
