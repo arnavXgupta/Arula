@@ -1,0 +1,6 @@
+===== Server started at 2026-03-24T05:27:53.367Z =====
+
+[2026-03-24T05:27:53.400Z] [INFO ] [API:session] POST /api/session — request received
+[2026-03-24T05:27:53.413Z] [DEBUG] [API:session] Parsed request body | {"metadata":{}}
+[2026-03-24T05:27:53.432Z] [INFO ] [API:session] Inserting new session into Supabase
+[2026-03-24T05:27:55.109Z] [ERROR] [API:session] Supabase insert failed | {"error":"Could not find the table 'public.sessions' in the schema cache"}

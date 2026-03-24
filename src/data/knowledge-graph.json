@@ -1,0 +1,100 @@
+{
+  "root": "start",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "type": "info",
+      "content": "👋 Welcome to ARULA Support! How can we help you today?",
+      "options": [
+        {
+          "label": "I have a question",
+          "next": "question"
+        },
+        {
+          "label": "I want to report an issue",
+          "next": "issue"
+        },
+        {
+          "label": "I need general information",
+          "next": "info"
+        }
+      ]
+    },
+    "question": {
+      "id": "question",
+      "type": "choice",
+      "content": "What category is your question about?",
+      "options": [
+        {
+          "label": "Account & Billing",
+          "next": "account_info"
+        },
+        {
+          "label": "Features & Usage",
+          "next": "features_info"
+        },
+        {
+          "label": "Technical Support",
+          "next": "tech_info"
+        }
+      ]
+    },
+    "issue": {
+      "id": "issue",
+      "type": "input",
+      "content": "Please describe the issue you're experiencing:",
+      "dataKey": "issue_description"
+    },
+    "info": {
+      "id": "info",
+      "type": "choice",
+      "content": "What would you like to know about?",
+      "options": [
+        {
+          "label": "About ARULA",
+          "next": "about_arula"
+        },
+        {
+          "label": "Pricing",
+          "next": "pricing"
+        },
+        {
+          "label": "Contact Us",
+          "next": "contact"
+        }
+      ]
+    },
+    "account_info": {
+      "id": "account_info",
+      "type": "info",
+      "content": "For account and billing questions, please visit our FAQ page or contact our support team at support@arula.com"
+    },
+    "features_info": {
+      "id": "features_info",
+      "type": "info",
+      "content": "Visit our features documentation to learn more about what ARULA can do for you."
+    },
+    "tech_info": {
+      "id": "tech_info",
+      "type": "input",
+      "content": "Please describe the technical issue you're facing:",
+      "dataKey": "tech_issue"
+    },
+    "about_arula": {
+      "id": "about_arula",
+      "type": "info",
+      "content": "ARULA is a platform dedicated to supporting your success. Learn more at www.arula.com"
+    },
+    "pricing": {
+      "id": "pricing",
+      "type": "info",
+      "content": "Visit our pricing page to see our plans and find the one that works best for you."
+    },
+    "contact": {
+      "id": "contact",
+      "type": "input",
+      "content": "What's the best way to reach you?",
+      "dataKey": "contact_info"
+    }
+  }
+}
