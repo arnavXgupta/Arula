@@ -1,15 +1,23 @@
 "use client";
 
+import type { ChatOption } from "@/types/chatbot";
+
+interface OptionGridProps {
+  options: ChatOption[];
+  onSelect: (option: ChatOption) => void;
+  disabled?: boolean;
+}
+
 export default function OptionGrid({
   options,
   onSelect,
   disabled,
-}: any) {
+}: OptionGridProps) {
   if (!options || options.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-2 mt-2">
-      {options.map((option: any, index: number) => (
+      {options.map((option, index) => (
         <button
           key={index}
           onClick={() => onSelect(option)}

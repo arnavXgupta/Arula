@@ -1,20 +1,28 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabaseServer";
 
+type TrackEventBody = {
+  session_id?: string;
+  node_id?: string;
+  action_type?: string;
+  choice_path?: string[];
+  payload?: Record<string, unknown>;
+  timestamp?: string;
+};
+
 export async function POST(req: Request) {
   try {
     const text = await req.text();
-    let body;
+
+    let body: TrackEventBody = {};
     try {
       body = text ? JSON.parse(text) : {};
-    } catch (e) {
+    } catch {
       return NextResponse.json(
         { success: false, error: "Invalid JSON body" },
         { status: 200 }
       );
     }
-
-    console.log("BODY:", body);
 
     const {
       session_id,
@@ -25,7 +33,6 @@ export async function POST(req: Request) {
       timestamp,
     } = body;
 
-    // 🚨 SAFE INSERT (NO CRASH)
     const { error, data } = await supabaseServer
       .from("tracking_events")
       .insert([
@@ -44,23 +51,23 @@ export async function POST(req: Request) {
       console.error("SUPABASE ERROR:", error);
       return NextResponse.json(
         { success: false, error: error.message || "Database insert failed" },
-        { status: 200 } // ⚠️ IMPORTANT: prevent frontend crash
+        { status: 200 }
       );
     }
 
     console.log("Supabase insert response data:", data);
 
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("API ERROR:", err);
 
-    // ✅ ALWAYS RETURN JSON
     return NextResponse.json(
       {
         success: false,
-        error: err?.message || "Server crashed",
+        error:
+          err instanceof Error ? err.message : "Server crashed",
       },
-      { status: 200 } // ⚠️ prevent HTML response
+      { status: 200 }
     );
   }
 }

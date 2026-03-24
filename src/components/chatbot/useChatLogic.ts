@@ -39,7 +39,7 @@ export function useChatLogic() {
         let data;
         try {
           data = JSON.parse(text);
-        } catch (e) {
+        } catch {
           throw new Error("Invalid JSON response from /api/session");
         }
         if (data.session_id) {
@@ -54,19 +54,6 @@ export function useChatLogic() {
 
     init();
   }, []);
-
-  // 🔥 SIMPLE DIRECT TRACK (NO CONDITIONS)
-  const sendEvent = async (event: any) => {
-    try {
-      await fetch("/api/track-event", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(event),
-      });
-    } catch (err) {
-      console.error("Track failed", err);
-    }
-  };
 
   // NAVIGATION
   const navigateTo = useCallback(
@@ -114,7 +101,7 @@ export function useChatLogic() {
 
     navigateTo(option.next);
   },
-  [choicePath, sessionData, navigateTo, sessionId]
+  [choicePath, navigateTo, sessionId]
 );
 
   // 🔥 INPUT (ALWAYS STORED)
